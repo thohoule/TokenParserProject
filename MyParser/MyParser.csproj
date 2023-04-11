@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{80351C0F-0317-4E11-89A4-DAF2714904A5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyParser</RootNamespace>
+    <AssemblyName>MyParser</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interpreter.cs" />
+    <Compile Include="Parser\ExpressionDictionary.cs" />
+    <Compile Include="Parser\ExpressionParser.cs" />
+    <Compile Include="Parser\Expression\External\CommandExpression.cs" />
+    <Compile Include="Parser\Expression\External\RightExpression.cs" />
+    <Compile Include="Parser\Expression\External\Standard\FormatExpression.cs" />
+    <Compile Include="Parser\Expression\External\Standard\PrintExpression.cs" />
+    <Compile Include="Parser\Expression\Internal\MessageExpression.cs" />
+    <Compile Include="Parser\Expression\IOperatorExpression.cs" />
+    <Compile Include="Parser\Expression\External\Standard\AddExpression.cs" />
+    <Compile Include="Parser\Expression\External\Standard\DivideExpression.cs" />
+    <Compile Include="Parser\Expression\Internal\IgnoredExpression.cs" />
+    <Compile Include="Parser\Expression\Internal\InvalidExpression.cs" />
+    <Compile Include="Parser\Expression\External\LeftRightExpression.cs" />
+    <Compile Include="Parser\Expression\External\Standard\MultiplyExpression.cs" />
+    <Compile Include="Parser\Expression\Internal\ParenthesesExpression.cs" />
+    <Compile Include="Parser\Expression\External\Standard\SubtractExpression.cs" />
+    <Compile Include="Parser\Expression\Internal\VariableExpression.cs" />
+    <Compile Include="Parser\ExternalVariables.cs" />
+    <Compile Include="Parser\Walkers\FunctionExpressionWalker.cs" />
+    <Compile Include="Parser\ExternalValueLookup.cs" />
+    <Compile Include="Parser\FunctionExpression.cs" />
+    <Compile Include="Parser\Expression\IExpression.cs" />
+    <Compile Include="Parser\Walkers\IExpressionWalker.cs" />
+    <Compile Include="Parser\LexerAnalysis\Lexer.cs" />
+    <Compile Include="Parser\LexerAnalysis\LexerResult.cs" />
+    <Compile Include="Parser\LexerAnalysis\StandardLexer.cs" />
+    <Compile Include="Parser\LexerAnalysis\Token.cs" />
+    <Compile Include="Parser\LexerAnalysis\TokenDefinition.cs" />
+    <Compile Include="Parser\LexerAnalysis\TokenDictionary.cs" />
+    <Compile Include="Parser\MatchParser.cs" />
+    <Compile Include="Parser\StandardParser.cs" />
+    <Compile Include="Parser\Expression\External\VauleExpressions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
